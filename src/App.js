@@ -1,5 +1,4 @@
 import React, {Component} from 'react';
-import logo from './logo.svg';
 import './App.css';
 
 
@@ -15,7 +14,7 @@ export class App extends Component {
         })
     }
 
-    minusOneCkick = () => {
+    minusOneClick = () => {
         if (this.state.currentValue <= 0) {
             return
         }
@@ -48,11 +47,12 @@ export class App extends Component {
     }
 
     addFromInput = () => {
+
         this.setState({
             currentValue: this.state.currentValue + Number(this.state.inputValue),
-
-
         })
+
+
 
 
     }
@@ -68,12 +68,12 @@ export class App extends Component {
                 <div className={`buttons`}>
                     <div className={`counter`}>
                         <button onClick={this.addOneClick}>+1</button>
-                        <button onClick={this.minusOneCkick}>-1</button>
+                        <button onClick={this.minusOneClick}>-1</button>
                         <button onClick={this.plus100Click}>+100</button>
                         <button onClick={this.minus100Click}>-100</button>
                     </div>
                     <div className={`input`}>
-                        <input type="text" onChange={this.inputOnChange}/>
+                        <input type="number" onChange={this.inputOnChange}/>
                         <button onClick={this.addFromInput}>add</button>
                     </div>
 
