@@ -5,7 +5,7 @@ import './App.css';
 export class App extends Component {
     state = {
         currentValue: 0,
-        inputValue : ''
+        inputValue: ''
 
     }
     addOneClick = () => {
@@ -39,11 +39,11 @@ export class App extends Component {
         })
     }
 
-     inputOnChange =(event) => {
+    inputOnChange = (event) => {
 
-            this.setState({
-                inputValue: event.target.value
-            })
+        this.setState({
+            inputValue: event.target.value
+        })
     }
 
     addFromInput = () => {
@@ -51,8 +51,6 @@ export class App extends Component {
         this.setState({
             currentValue: this.state.currentValue + Number(this.state.inputValue),
         })
-
-
 
 
     }
