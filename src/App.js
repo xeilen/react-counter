@@ -8,6 +8,7 @@ export class App extends Component {
         inputValue: ''
 
     }
+
     addOneClick = () => {
         this.setState({
             currentValue: this.state.currentValue + 1
@@ -28,11 +29,10 @@ export class App extends Component {
             currentValue: this.state.currentValue + 100
         })
     }
+
     minus100Click = () => {
         if (this.state.currentValue <= 100) {
-            return this.setState({
-                currentValue: 0
-            })
+            return this.reset()
         }
         this.setState({
             currentValue: this.state.currentValue - 100
@@ -40,20 +40,28 @@ export class App extends Component {
     }
 
     inputOnChange = (event) => {
-
         this.setState({
             inputValue: event.target.value
         })
     }
 
-    addFromInput = () => {
-
+    addFromInput = (e) => {
         this.setState({
             currentValue: this.state.currentValue + Number(this.state.inputValue),
         })
-
+        if (this.state.currentValue < 0) { //щоб currentValue не заходило в мінус під капотом
+            return this.reset()
+        }
 
     }
+
+
+    reset = () => {
+        this.setState({
+            currentValue: 0
+        })
+    }
+
 
     render() {
 
@@ -61,7 +69,7 @@ export class App extends Component {
         return (
             <div className="App">
                 <div className={`result`}>
-                    {this.state.currentValue}
+                    {this.state.currentValue < 0 ? this.reset() : this.state.currentValue}
                 </div>
                 <div className={`buttons`}>
                     <div className={`counter`}>
@@ -73,6 +81,7 @@ export class App extends Component {
                     <div className={`input`}>
                         <input type="number" onChange={this.inputOnChange}/>
                         <button onClick={this.addFromInput}>add</button>
+                        <button onClick={this.reset}>reset</button>
                     </div>
 
                 </div>
