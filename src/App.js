@@ -47,7 +47,7 @@ class App extends Component {
                          value={this.state.inputValue}/>
 
                 <footer>
-                    counter 2.0 by Nazar Kovalenko :D
+                    counter 2.0 by Nazar Kovalenko☺:D
                 </footer>
             </div>
         )
