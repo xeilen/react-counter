@@ -7,7 +7,7 @@ constructor(props) {
 }
 
     render() {
-    const {val, count} = this.props
+    const {val} = this.props
         return (
             <div className={`result`}>
                 <div>{val}</div>
